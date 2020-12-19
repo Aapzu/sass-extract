@@ -70,6 +70,8 @@ $base-font-size: 20px;
 @import '../../node_modules/foundation-sites/scss/components/tooltip';
 @import '../../node_modules/foundation-sites/scss/prototype/prototype';
 
+$global-flexbox: null;
+
 @mixin foundation-everything(
   $flex: true,
   $prototype: false

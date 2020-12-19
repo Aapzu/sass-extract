@@ -104,10 +104,11 @@ function verifyVarArgs(rendered, sourceFile) {
   expect(rendered.vars.global.$echoedMixin.type).to.equal('SassList');
   expect(rendered.vars.global.$echoedMixin.sources).to.have.length(1);
   expect(rendered.vars.global.$echoedMixin.sources[0]).to.equal(normalizePath(sourceFile));
-  expect(rendered.vars.global.$echoedMixin.declarations).to.have.length(1);
-  expect(rendered.vars.global.$echoedMixin.declarations[0].expression).to.equal(`$vars !global`);
-  expect(rendered.vars.global.$echoedMixin.declarations[0].flags.global).to.equal(true);
-  expect(rendered.vars.global.$echoedMixin.declarations[0].flags.default).to.equal(false);
+  expect(rendered.vars.global.$echoedMixin.declarations).to.have.length(2);
+  expect(rendered.vars.global.$echoedMixin.declarations[0].expression).to.equal("null");
+  expect(rendered.vars.global.$echoedMixin.declarations[1].expression).to.equal(`$vars !global`);
+  expect(rendered.vars.global.$echoedMixin.declarations[1].flags.global).to.equal(true);
+  expect(rendered.vars.global.$echoedMixin.declarations[1].flags.default).to.equal(false);
   expect(rendered.vars.global.$echoedMixin.value).to.have.length(3);
   expect(rendered.vars.global.$echoedMixin.value).to.deep.equal([
     { type: 'SassNumber', value: 5, unit: '' },

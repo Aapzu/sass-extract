@@ -1,3 +1,5 @@
+$echoedMixin: null;
+
 @function echo($vars...) {
   @return $vars;
 }

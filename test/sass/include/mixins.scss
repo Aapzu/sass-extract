@@ -1,3 +1,13 @@
+$mixinVariable: null;
+$defaultedAtFirst: null;
+$defaultedAtFirst: null;
+$someDefault: null;
+$someDefault: null;
+$someOtherDefault: null;
+$someOtherDefault: null;
+$multipleDefault: null;
+$multipleDefault: null;
+
 @mixin mixin1 {
   $mixinVariable: 'mixin-variable' !global;
 }
