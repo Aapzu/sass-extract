@@ -1,4 +1,4 @@
-import { serialize } from '../serialize';
+import { serialize } from "../serialize"
 
 /**
  * Replace variables values with their serialized variant
@@ -6,8 +6,8 @@ import { serialize } from '../serialize';
  */
 export function run() {
   return {
-    postValue: ({ value, sassValue, sass }) => {
-      return { value: { value: serialize(sassValue, false, sass) }, sassValue };
-    }
+    postValue: ({ sassValue, sass }) => {
+      return { value: { value: serialize(sassValue, false, sass) }, sassValue }
+    },
   }
 }

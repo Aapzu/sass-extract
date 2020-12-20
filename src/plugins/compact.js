@@ -1,44 +1,42 @@
 function isPrimitive(value) {
-  return Object(value) !== value;
+  return Object(value) !== value
 }
 
 /**
  * Use duck typing to distinguish between map and color objects
  */
 function isColor(value) {
-  return value.r != null
-    && value.g != null
-    && value.b != null
-    && value.a != null
-    && value.hex != null;
+  return (
+    value.r != null && value.g != null && value.b != null && value.a != null && value.hex != null
+  )
 }
 
 function compactArray(arrayValue) {
-  return arrayValue.map(element => {
-    return compactValue(element.value);
-  });
+  return arrayValue.map((element) => {
+    return compactValue(element.value)
+  })
 }
 
 function compactObject(objectValue) {
-  if(isColor(objectValue)) {
-    return objectValue;
+  if (isColor(objectValue)) {
+    return objectValue
   }
-  const compactedObject = {};
+  const compactedObject = {}
 
-  Object.keys(objectValue).forEach(key => {
-    compactedObject[key] = compactValue(objectValue[key].value);
-  });
+  Object.keys(objectValue).forEach((key) => {
+    compactedObject[key] = compactValue(objectValue[key].value)
+  })
 
-  return compactedObject;
+  return compactedObject
 }
 
 function compactValue(value) {
-  if(isPrimitive(value)) {
-    return value;
-  } else if(Array.isArray(value)) {
-    return compactArray(value);
+  if (isPrimitive(value)) {
+    return value
+  } else if (Array.isArray(value)) {
+    return compactArray(value)
   } else {
-    return compactObject(value);
+    return compactObject(value)
   }
 }
 
@@ -51,9 +49,9 @@ export function run() {
     postExtract: (extractedVariables) => {
       const compactedVariables = {
         global: compactValue(extractedVariables.global),
-      };
+      }
 
-      return compactedVariables;
-    }
+      return compactedVariables
+    },
   }
 }
